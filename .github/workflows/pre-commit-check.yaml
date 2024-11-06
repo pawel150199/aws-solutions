@@ -2,9 +2,11 @@ name: Pre commit check
 
 on:
   push:
-    branches: all
+    branches:
+      - master
   pull_request:
-    branches: all
+    branches: 
+      - master
   
 jobs:
   pre-commit-check:
