@@ -76,7 +76,7 @@ resource "aws_iam_policy" "step_functions_iam_policy" {
         "s3:PutObject"
       ],
       "Resource": [
-        "arn:aws:s3:::step-functions-bucket/*"
+        "arn:aws:s3:::step-functions-export/*"
       ],
       "Effect": "Allow"
     },

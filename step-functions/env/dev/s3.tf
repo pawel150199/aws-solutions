@@ -20,7 +20,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "step_functions_bucket_lifecycl
   bucket = aws_s3_bucket.step_functions_bucket.id
 
   rule {
-    id     = "auto-delete-objects-after-72-hours"
+    id     = "auto-delete-objects-after-24-hours"
     status = "Enabled"
 
     filter {
