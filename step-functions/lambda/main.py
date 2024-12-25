@@ -17,9 +17,10 @@ def configure_logger():
 def create_file(logger, s3_bucket, s3_filename, content):
     """Create example file in S3 bucket"""
     try:
-        with open(s3_filename, "wb") as f:
+        s3_filepath = "/tmp/" + s3_filename
+        with open(s3_filepath, "w") as f:
             f.write(content)
-        s3.upload_file(s3_filename, bucket, s3_filename)
+        s3.upload_file(s3_filepath, s3_bucket, s3_filename)
         logger.info("File has been successfully uploaded")
     except ClientError as e:
         logger.error("e")
