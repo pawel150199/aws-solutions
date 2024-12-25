@@ -15,7 +15,7 @@ import (
 type Request struct {
 	URL			string		`json:"url"`
 	BucketName	string   	`json:"bucketName"`
-	ObjectName	string		`json:"objectName"`	
+	ObjectName	string		`json:"objectName"`
 }
 
 type Response struct {

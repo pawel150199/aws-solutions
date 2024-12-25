@@ -5,9 +5,9 @@ on:
     branches:
       - master
   pull_request:
-    branches: 
+    branches:
       - master
-  
+
 jobs:
   pre-commit-check:
     runs-on: ubuntu-latest
@@ -19,12 +19,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      
+
       - name: Download pre-commit hooks
         run: |
           pip install pre-commit
           pre-commit install
-      
+
       - name: Download terraform
         run: |
           sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
@@ -46,4 +46,4 @@ jobs:
 
       - name: Run pre-commit hooks
         run: |
-          pre-commit run --all-files       
+          pre-commit run --all-files

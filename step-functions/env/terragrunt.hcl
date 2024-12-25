@@ -56,7 +56,7 @@ provider "aws" {
         }
     }
 }
-EOF 
+EOF
 }
 
 remote_state {

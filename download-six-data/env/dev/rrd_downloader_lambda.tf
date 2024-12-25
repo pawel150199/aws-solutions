@@ -1,16 +1,16 @@
 resource "aws_lambda_function" "rrd_downloader_lambda" {
-    function_name = "rrd_downloader_lambda_function"
-    role          = aws_iam_role.this.arn
-    package_type  = "Image"
+  function_name = "rrd_downloader_lambda_function"
+  role          = aws_iam_role.this.arn
+  package_type  = "Image"
 
-    image_uri = local.env_vars.lambda.image_uri
+  image_uri = local.env_vars.lambda.image_uri
 
-    logging_config {
-        log_format = "Text"
-        log_group  = local.env_vars.lambda.log_group
-    }
+  logging_config {
+    log_format = "Text"
+    log_group  = local.env_vars.lambda.log_group
+  }
 
-    depends_on = [ aws_iam_role.this ]
+  depends_on = [aws_iam_role.this]
 }
 
 resource "aws_iam_role" "this" {
@@ -30,7 +30,7 @@ resource "aws_iam_role" "this" {
       },
     ]
   })
-      managed_policy_arns = [
+  managed_policy_arns = [
     aws_iam_policy.step_functions_iam_policy.arn,
   ]
 
@@ -39,11 +39,11 @@ resource "aws_iam_role" "this" {
 }
 
 resource "aws_iam_policy" "step_functions_iam_policy" {
- 
-  name         = "aws-iam-policy-rrd-downloader-lambda-role"
-  path         = "/"
-  description  = "AWS IAM Policy for managing lambda role"
-  policy = <<EOF
+
+  name        = "aws-iam-policy-rrd-downloader-lambda-role"
+  path        = "/"
+  description = "AWS IAM Policy for managing lambda role"
+  policy      = <<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
