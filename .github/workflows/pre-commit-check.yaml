@@ -20,6 +20,11 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Download flake and black
+        run: |
+          pip install flake8
+          pip install black
+
       - name: Download pre-commit hooks
         run: |
           pip install pre-commit
